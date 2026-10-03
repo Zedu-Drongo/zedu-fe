@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { siteUrl } from "~/lib/env-urls";
-import { zeduDrongoContributors } from "~/data/zedu-drongo-contributors";
-import { ContributorCard } from "../../_components/contributors/ContributorCard";
+import { zeduDrongoContributors } from "./_lib/contributors";
+import { ContributorCard } from "./_components/ContributorCard";
 
 export const metadata: Metadata = {
   title: "Zedu Drongo Contributors",
@@ -29,7 +29,7 @@ const ZeduDrongoContributorsPage = () => {
       </section>
 
       <section className="w-full px-4 sm:px-8 lg:px-12">
-        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
           {zeduDrongoContributors.map((contributor) => (
             <ContributorCard key={contributor.username} {...contributor} />
           ))}
