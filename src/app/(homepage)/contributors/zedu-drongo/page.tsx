@@ -15,6 +15,14 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * Next.js Page component that displays the Zedu Drongo contributors gallery.
+ * Renders a header section with the total contributor count followed by a responsive
+ * grid layout containing individual contributor cards.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered Zedu Drongo contributors page.
+ */
 const ZeduDrongoContributorsPage = () => {
   return (
     <div className="space-y-12 pb-20">
