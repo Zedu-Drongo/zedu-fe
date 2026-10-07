@@ -51,7 +51,7 @@ export const zeduDrongoContributors: Contributor[] = [
   { name: "Doris King-Paul", username: "Mochasset" },
   { name: "Victor Oluwayemi", username: "Victor.OL" },
   { name: "Daniel Ugot", username: "Daniel Ugot" },
-  { name: "Meklit Seife", username: "meklitseife86" },
+  { name: "Seife Meklit", username: "meklitseife86" },
   { name: "Sheriff Afolabi", username: "sheriff-afolabi" },
   { name: "Abuchi Nwajagu Collins", username: "Collinsthegreat" },
   { name: "Nzubechukwu Diara", username: "Diara" },
