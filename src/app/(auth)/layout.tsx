@@ -3,6 +3,7 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import { useRouter } from "next/navigation";
 import React, { useContext, useEffect, useState } from "react";
 import { DataContext, DataProvider } from "~/store/GlobalState";
+import { provisionTemplateChannels } from "~/data/templates";
 
 function getLoggedInRedirectPath(orgSlugFromState?: string) {
   const storedOrgSlug = localStorage.getItem("orgSlug") || "";
@@ -36,15 +37,17 @@ export default function RootLayout({
   const { orgSlug } = state;
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      const redirectPath = getLoggedInRedirectPath(orgSlug);
-      if (redirectPath) {
-        router.replace(redirectPath);
-        return;
+    (async () => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        const t = new URLSearchParams(window.location.search).get("template");
+        const orgId = localStorage.getItem("orgId");
+        if (t && orgId) await provisionTemplateChannels(orgId, t, token);
+        const r = getLoggedInRedirectPath(orgSlug);
+        if (r) return router.replace(r);
       }
-    }
-    setLoading(false);
+      setLoading(false);
+    })();
   }, [orgSlug, router]);
 
   if (loading) return;
